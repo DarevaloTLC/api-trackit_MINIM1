@@ -26,3 +26,8 @@ npm i nodemon
 ```
 npm install ts-node --save-dev
 ```
+
+## Minimo 1:
+```
+Están programados todas las funciones especificadas para el backend. He hecho los get especificos pasando como atributo el ID no el nombre, con un poco más de tiempo me hubiera dado tiempo a cambiarlo o si lo hubiera hecho desde el principio así.
+```

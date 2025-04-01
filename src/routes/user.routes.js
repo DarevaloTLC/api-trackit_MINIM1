@@ -12,4 +12,5 @@ router.delete('/:id', user_controller_1.deleteUserById);
 router.put('/:id/deactivate', user_controller_1.deactivateUserById);
 router.get('/:id/packets', user_controller_1.getUserPackets);
 router.post('/:name/packets', user_controller_1.addPacketToUser);
+router.get('/:id/comments', user_controller_1.getUserCommentsById);
 exports.default = router;

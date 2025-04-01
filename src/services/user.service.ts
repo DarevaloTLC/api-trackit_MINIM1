@@ -68,6 +68,11 @@ export class UserService {
         return user;
     }
 
+    async getUserCommentsById(userId: string): Promise<IUser["comments"] | null> {
+        const user = await UserModel.findById(userId).populate("comments");
+        return user ? user.comments : null;
+    }
+
 
 }
 

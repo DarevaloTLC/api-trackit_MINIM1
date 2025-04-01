@@ -11,7 +11,8 @@ import {
     deactivateUserById, 
     getUserPackets, 
     addPacketToUser, 
-    getUserByName
+    getUserByName,
+    getUserCommentsById
 } from '../controllers/user.controller';
 
 router.get("/", getAllUsers);
@@ -23,5 +24,5 @@ router.delete('/:id', deleteUserById);
 router.put('/:id/deactivate', deactivateUserById);
 router.get('/:id/packets', getUserPackets);
 router.post('/:name/packets', addPacketToUser);
-
+router.get('/:id/comments', getUserCommentsById);
 export default router;

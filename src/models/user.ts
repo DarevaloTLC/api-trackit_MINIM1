@@ -8,6 +8,7 @@ export interface IUser {
   phone: string;
   available: boolean;
   packets: ObjectId[];
+  comments: ObjectId[];
 }
 
 const userSchema = new Schema<IUser>({

@@ -18,6 +18,7 @@ exports.deleteUserById = deleteUserById;
 exports.deactivateUserById = deactivateUserById;
 exports.getUserPackets = getUserPackets;
 exports.addPacketToUser = addPacketToUser;
+exports.getUserCommentsById = getUserCommentsById;
 const user_service_1 = require("../services/user.service");
 const userService = new user_service_1.UserService();
 /**
@@ -340,6 +341,22 @@ function addPacketToUser(req, res) {
         }
         catch (error) {
             res.status(500).json({ message: "Error adding packet to user", error });
+        }
+    });
+}
+function getUserCommentsById(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const userId = req.params.id;
+            const comments = yield userService.getUserCommentsById(userId);
+            if (!comments) {
+                res.status(404).json({ message: "User not found or no comments available" });
+                return;
+            }
+            res.status(200).json(comments);
+        }
+        catch (error) {
+            res.status(500).json({ message: "Error retrieving comments", error });
         }
     });
 }

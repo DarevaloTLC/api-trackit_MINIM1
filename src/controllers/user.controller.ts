@@ -315,3 +315,19 @@ export async function addPacketToUser(req: Request, res: Response): Promise<void
         res.status(500).json({ message: "Error adding packet to user", error });
     }
 }
+
+export async function getUserCommentsById(req: Request, res: Response): Promise<void> {
+    try {
+        const userId = req.params.id;
+        const comments = await userService.getUserCommentsById(userId);
+
+        if (!comments) {
+            res.status(404).json({ message: "User not found or no comments available" });
+            return;
+        }
+
+        res.status(200).json(comments);
+    } catch (error) {
+        res.status(500).json({ message: "Error retrieving comments", error });
+    }
+}

@@ -74,6 +74,12 @@ class UserService {
             return user;
         });
     }
+    getUserCommentsById(userId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const user = yield user_1.UserModel.findById(userId).populate("comments");
+            return user ? user.comments : null;
+        });
+    }
 }
 exports.UserService = UserService;
 exports.default = new UserService();
